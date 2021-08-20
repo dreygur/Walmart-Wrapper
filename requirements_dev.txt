@@ -1,0 +1,6 @@
+-r requirements.txt
+
+pytest
+responses
+flake8
+requests-mock
