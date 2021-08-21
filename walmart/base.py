@@ -3,12 +3,12 @@
 from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
-from .core import Core
-from .lib.report import Report
-from .lib.orders import Orders
-from .lib.insights import Insights
-from .lib.inventory import Inventory
-from .lib.items import WalmartItems
+from walmart.core import Core
+from walmart.lib.report import Report
+from walmart.lib.orders import Orders
+from walmart.lib.insights import Insights
+from walmart.lib.inventory import Inventory
+from walmart.lib.items import WalmartItems
 
 class Walmart(Core):
   def __init__(

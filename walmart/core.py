@@ -8,7 +8,7 @@ import requests
 from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
-from .exceptions import WalmartAuthenticationError
+from walmart.exceptions import WalmartAuthenticationError
 
 class Core(object):
   def __init__(

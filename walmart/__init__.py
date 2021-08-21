@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 # IMPORTS
-from .base import Walmart
-from .exceptions import WalmartAuthenticationError
+from walmart.base import Walmart
+from walmart.exceptions import WalmartAuthenticationError
 
 # EXPORTS
 __version__ = '0.0.1'

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest  # noqa
-from .mocks import get_mock_for
+from walmart.mocks import get_mock_for
 
 def test_token_generation(walmart):
   "test if token authentication call is made"

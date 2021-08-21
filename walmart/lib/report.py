@@ -3,8 +3,8 @@
 from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
-from ..core import Resource
-from ..exceptions import WalmartAuthenticationError
+from walmart.core import Resource
+from walmart.exceptions import WalmartAuthenticationError
 
 class Report(Resource):
   """

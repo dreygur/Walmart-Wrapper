@@ -3,7 +3,7 @@
 from typing import Dict
 
 # LOCAL IMPORTS
-from ..core import Resource
+from walmart.core import Resource
 
 class Orders(Resource):
   """

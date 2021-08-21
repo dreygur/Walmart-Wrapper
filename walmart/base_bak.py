@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # IMPORTS
-from .exceptions import WalmartAuthenticationError
+from walmart.exceptions import WalmartAuthenticationError
 from lxml.builder import E, ElementMaker
 from lxml import etree
 from requests.auth import HTTPBasicAuth

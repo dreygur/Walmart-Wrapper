@@ -1,7 +1,7 @@
 import pytest
 
 from walmart import Walmart
-from .mocks import get_mock_for
+from walmart.mocks import get_mock_for
 
 @pytest.fixture
 def walmart(requests_mock):
