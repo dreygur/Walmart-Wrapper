@@ -5,9 +5,10 @@ from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
 from .core import Core
-from lib.report import Report
-from lib.orders import Orders
-
+from .lib.report import Report
+from .lib.orders import Orders
+from .lib.inventory import Inventory
+from .lib.items import WalmartItems
 
 def epoch_milliseconds(dt: int) -> int:
   "Walmart accepts timestamps as epoch time in milliseconds"
@@ -32,4 +33,12 @@ class Walmart(Core):
   @property
   def orders(self):
     return Orders(connection=self)
+
+  @property
+  def items(self):
+    return WalmartItems(connection=self)
+
+  @property
+  def inventory(self):
+    return Inventory(connection=self)
 
