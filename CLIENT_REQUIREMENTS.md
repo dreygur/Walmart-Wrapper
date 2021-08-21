@@ -11,7 +11,7 @@ This is the list of reports we will need. I would expect you to create the code 
 [+] https://developer.walmart.com/api/us/mp/inventory
 
 - Buy Box Report
-https://developer.walmart.com/api/us/mp/reports
+[+] https://developer.walmart.com/api/us/mp/reports
 
 - Listing Quality Report
 https://developer.walmart.com/api/us/mp/insights#operation/getListingQualityScore

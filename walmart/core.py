@@ -3,7 +3,6 @@
 from lxml.builder import E, ElementMaker
 from lxml import etree
 from requests.auth import HTTPBasicAuth
-from datetime import datetime
 import uuid
 import requests
 from typing import Dict, List, Union, Tuple, Optional
@@ -29,7 +28,7 @@ class Core(object):
 
     session = requests.Session()
     session.headers.update({
-      "WM_SVC.NAME": "Walmart Marketplace",
+      "WM_SVC.NAME": "Walmart",
       "Content-Type": "application/x-www-form-urlencoded",
       "Accept": "application/json",
     })
@@ -39,7 +38,7 @@ class Core(object):
     # Get the token required for API requests
     self.authenticate()
 
-  def authenticate(self):
+  def authenticate(self) -> None:
     data = self.send_request(
       "POST", "{}/token".format(self.base_url),
       body={
@@ -59,7 +58,7 @@ class Core(object):
     body: Dict = None,
     json: Dict = None,
     request_headers: Dict = None
-  ):
+  ) -> Dict:
     # A unique ID which identifies each API call and used to track
     # and debug issues; use a random generated GUID for this ID
     headers = {
@@ -122,19 +121,19 @@ class Resource(object):
     self.connection = connection
 
   @property
-  def url(self):
+  def url(self) -> str:
     return "{}/{}".format(self.connection.base_url, self.path)
 
-  def all(self, **kwargs):
+  def all(self, **kwargs) -> List:
     return self.connection.send_request(
       method="GET", url=self.url, params=kwargs
     )
 
-  def get(self, id):
+  def get(self, id) -> Dict:
     url = "{}/{}".format(self.url, id)
     return self.connection.send_request(method="GET", url=url)
 
-  def update(self, **kwargs):
+  def update(self, **kwargs) -> Dict:
     return self.connection.send_request(
       method="PUT", url=self.url, params=kwargs
     )

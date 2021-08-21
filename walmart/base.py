@@ -1,19 +1,14 @@
 # -*- coding: utf-8 -*-
 # IMPORTS
-from datetime import datetime
 from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
 from .core import Core
 from .lib.report import Report
 from .lib.orders import Orders
+from .lib.insights import Insights
 from .lib.inventory import Inventory
 from .lib.items import WalmartItems
-
-def epoch_milliseconds(dt: int) -> int:
-  "Walmart accepts timestamps as epoch time in milliseconds"
-  epoch = datetime.utcfromtimestamp(0)
-  return int((dt - epoch).total_seconds() * 1000.0)
 
 class Walmart(Core):
   def __init__(
@@ -21,24 +16,29 @@ class Walmart(Core):
     client_id: str,
     client_secret: str
   ) -> object:
-    """To get client_id and client_secret for your Walmart Marketplace
+    """
+    To get client_id and client_secret for your Walmart Marketplace
     visit: https://developer.walmart.com/#/generateKey
     """
     super(Walmart, self).__init__(client_id, client_secret)
 
   @property
-  def report(self):
+  def report(self) -> Report:
     return Report(connection=self)
 
   @property
-  def orders(self):
+  def orders(self) -> Orders:
     return Orders(connection=self)
 
   @property
-  def items(self):
+  def items(self) -> WalmartItems:
     return WalmartItems(connection=self)
 
   @property
-  def inventory(self):
+  def inventory(self) -> Inventory:
     return Inventory(connection=self)
+
+  @property
+  def insights(self) -> Insights:
+    return Insights(connection=self)
 

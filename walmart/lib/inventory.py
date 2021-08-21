@@ -12,8 +12,11 @@ class Inventory(Resource):
 
   path = 'inventories'
 
-  def all(self, limit='10', next=''):
-
+  def all(
+    self,
+    limit: str = '10',
+    next: str = ''
+  ) -> Dict:
     return self.connection.send_request(
         method='GET',
         url=self.url,
@@ -23,7 +26,11 @@ class Inventory(Resource):
         }
     )
 
-  def inventory(self, sku, ship_node=''):
+  def inventory(
+    self,
+    sku: str,
+    ship_node: str = ''
+  ) -> Dict:
     url = 'inventory'
     return self.connection.send_request(
       method='GET',
@@ -36,12 +43,12 @@ class Inventory(Resource):
 
   def wfs_inventory(
     self,
-    sku='',
-    from_modified_date='',
-    to_modified_date='',
-    limit='10',
-    offset='0'
-  ):
+    sku: str = '',
+    from_modified_date: str = '',
+    to_modified_date: str = '',
+    limit: str = '10',
+    offset: str = '0'
+  ) -> Dict:
     url = 'fulfillment/inventory'
     return self.connection.send_request(
       method='GET',
@@ -55,7 +62,11 @@ class Inventory(Resource):
       }
     )
 
-  def single_by_ship(self, sku, ship_node=''):
+  def single_by_ship(
+    self,
+    sku: str,
+    ship_node: str = ''
+  ) -> Dict:
     return self.connection.send_request(
         method='GET',
         url='{}/{}'.format(self.url, sku),

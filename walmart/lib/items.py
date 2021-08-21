@@ -12,7 +12,10 @@ class WalmartItems(Resource):
 
   path = 'items'
 
-  def count(self, status='PUBLISHED'):
+  def count(
+    self,
+    status: str = 'PUBLISHED'
+  ) -> Dict:
     """
     "PUBLISHED"
     "UNPUBLISHED"
@@ -27,7 +30,11 @@ class WalmartItems(Resource):
       params={'status': status}
     )
 
-  def get_item(self, id, product_type):
+  def get_item(
+    self,
+    id: str,
+    product_type: str
+  ) -> Dict:
     """
     "GTIN"
     "UPC"
@@ -44,13 +51,13 @@ class WalmartItems(Resource):
 
   def all_items(
     self,
-    sku='',
-    offset='0',
-    limit='20',
-    life_cycle_status='ACTIVE',
-    published_status='PUBLISHED',
-    next_curson='*'
-  ):
+    sku: str = '',
+    offset: str = '0',
+    limit: str = '20',
+    life_cycle_status: str = 'ACTIVE',
+    published_status: str = 'PUBLISHED',
+    next_curson: str = '*'
+  ) -> Dict:
     """
     "ACTIVE"
     "INACTIVE"
@@ -70,7 +77,7 @@ class WalmartItems(Resource):
     )
 
   @property
-  def taxonomy(self):
+  def taxonomy(self) -> Dict:
     url = 'taxonomy'
     return self.connection.send_request(
       method='GET',
@@ -79,10 +86,10 @@ class WalmartItems(Resource):
 
   def search(
     self,
-    query='',
-    upc='',
-    gtin=''
-  ):
+    query: str = '',
+    upc: str = '',
+    gtin: str = ''
+  ) -> Dict:
     url = 'walmart/search'
     self.connection.send_request(
       method='GET',

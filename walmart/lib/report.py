@@ -14,14 +14,17 @@ class Report(Resource):
   path = 'getReport'
 
   @property
-  def available(self):
+  def available(self) -> List[Dict]:
     url = '/report/reconreport/availableReconFiles'
     return self.connection.send_request(
         method='GET',
         url=self.connection.base_url + url,
     )
 
-  def recon_report(self, date):
+  def recon_report(
+    self,
+    date: str
+  ) -> Union[Dict, List]:
     url = '/report/reconreport/reconFile'
     return self.connection.send_request(
         method='GET',
@@ -29,7 +32,10 @@ class Report(Resource):
         params={"reportDate": date},
     )
 
-  def get_report(self, type):
+  def get_report(
+    self,
+    type: str
+  ) -> Union[Dict, List]:
     """
     Types:
       - "item"
