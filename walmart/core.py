@@ -59,6 +59,22 @@ class Core(object):
     json: Dict = None,
     request_headers: Dict = None
   ) -> Dict:
+    """Request a resource from the Walmart Marketplace API.
+
+    Args:
+        method (str): [description]
+        url (str): [description]
+        params (Dict, optional): [description]. Defaults to None.
+        body (Dict, optional): [description]. Defaults to None.
+        json (Dict, optional): [description]. Defaults to None.
+        request_headers (Dict, optional): [description]. Defaults to None.
+
+    Raises:
+        WalmartAuthenticationError: [description]
+
+    Returns:
+        Dict: [description]
+    """
     # A unique ID which identifies each API call and used to track
     # and debug issues; use a random generated GUID for this ID
     headers = {

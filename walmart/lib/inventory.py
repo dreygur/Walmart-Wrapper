@@ -17,6 +17,15 @@ class Inventory(Resource):
     limit: str = '10',
     next: str = ''
   ) -> Dict:
+    """A list of all items in the inventory
+
+    Args:
+        limit (str, optional): [description]. Defaults to '10'.
+        next (str, optional): [description]. Defaults to ''.
+
+    Returns:
+        Dict: [description]
+    """
     return self.connection.send_request(
         method='GET',
         url=self.url,
@@ -31,6 +40,15 @@ class Inventory(Resource):
     sku: str,
     ship_node: str = ''
   ) -> Dict:
+    """A single item in the inventory
+
+    Args:
+        sku (str): [description]
+        ship_node (str, optional): [description]. Defaults to ''.
+
+    Returns:
+        Dict: [description]
+    """
     url = 'inventory'
     return self.connection.send_request(
       method='GET',
@@ -49,6 +67,18 @@ class Inventory(Resource):
     limit: str = '10',
     offset: str = '0'
   ) -> Dict:
+    """A list of all items in the inventory by WFS
+
+    Args:
+        sku (str, optional): [description]. Defaults to ''.
+        from_modified_date (str, optional): [description]. Defaults to ''.
+        to_modified_date (str, optional): [description]. Defaults to ''.
+        limit (str, optional): [description]. Defaults to '10'.
+        offset (str, optional): [description]. Defaults to '0'.
+
+    Returns:
+        Dict: [description]
+    """
     url = 'fulfillment/inventory'
     return self.connection.send_request(
       method='GET',
@@ -67,6 +97,15 @@ class Inventory(Resource):
     sku: str,
     ship_node: str = ''
   ) -> Dict:
+    """A single item in the inventory by Spipping number
+
+    Args:
+        sku (str): [description]
+        ship_node (str, optional): [description]. Defaults to ''.
+
+    Returns:
+        Dict: [description]
+    """
     return self.connection.send_request(
         method='GET',
         url='{}/{}'.format(self.url, sku),

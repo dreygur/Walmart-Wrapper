@@ -4,9 +4,10 @@ from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
 from walmart.core import Resource
-from walmart.exceptions import WalmartAuthenticationError
 
 class Insights(Resource):
+  """Insights Endpoints"""
+
   path = 'insights/items'
 
   def quality_score(
@@ -14,6 +15,15 @@ class Insights(Resource):
     wfs_flag: str = '',
     view_trending_items: bool = True
   ) -> Dict:
+    """Quality Score
+
+    Args:
+        wfs_flag (str, optional): [description]. Defaults to ''.
+        view_trending_items (bool, optional): [description]. Defaults to True.
+
+    Returns:
+        Dict: [description]
+    """
     return self.connection.send_request(
       method='GET',
       url=self.url,
@@ -31,6 +41,19 @@ class Insights(Resource):
     offset: str = '0',
     timeframe: str = '7',
   ) -> Dict:
+    """Trending Items
+
+    Args:
+        department_id (str): [description]
+        category_id (str, optional): [description]. Defaults to 'null'.
+        limit (str, optional): [description]. Defaults to '20'.
+        offset (str, optional): [description]. Defaults to '0'.
+        timeframe (str, optional): [description]. Defaults to '7'.
+
+    Returns:
+        Dict: [description]
+    """
+
     url = 'trending'
     return self.connection.send_request(
       method='GET',
@@ -50,6 +73,17 @@ class Insights(Resource):
     view_trending_items: bool = True,
     hass_issue: int = 0
   ) -> Dict:
+    """Listing Quality Issues Categories
+
+    Args:
+        wfs_flag (str, optional): [description]. Defaults to ''.
+        view_trending_items (bool, optional): [description]. Defaults to True.
+        hass_issue (int, optional): [description]. Defaults to 0.
+
+    Returns:
+        Dict: [description]
+    """
+
     url = 'listingQuality/categories'
     return self.connection.send_request(
       method='GET',
@@ -70,6 +104,20 @@ class Insights(Resource):
     market_trending: bool = False,
     items_with_inventory: bool = True
   ) -> Dict:
+    """Unpublished
+
+    Args:
+        from_date (str): [description]
+        unpublished_reason_code (str, optional): [description]. Defaults to 'all'.
+        limit (str, optional): [description]. Defaults to '20'.
+        offer_life_cycle_status (str, optional): [description]. Defaults to 'all'.
+        market_trending (bool, optional): [description]. Defaults to False.
+        items_with_inventory (bool, optional): [description]. Defaults to True.
+
+    Returns:
+        Dict: [description]
+    """
+
     url = 'unpublished/items'
     self.connection.send_request(
       method='GET',
@@ -88,9 +136,16 @@ class Insights(Resource):
     self,
     from_date: str,
   ) -> Dict:
+    """Unpublished Count
+
+    Args:
+        from_date (str): [description]
+
+    Returns:
+        Dict: [description]
     """
-    Date Format: 2020-09-23
-    """
+    # Date Format: 2020-09-23
+
     url = 'unpublished/counts'
     self.connection.send_request(
       method='GET',

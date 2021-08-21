@@ -16,29 +16,59 @@ class Walmart(Core):
     client_id: str,
     client_secret: str
   ) -> object:
-    """
-    To get client_id and client_secret for your Walmart Marketplace
-    visit: https://developer.walmart.com/#/generateKey
+    """Walmart API Client
+
+    Args:
+        client_id (str): [description]
+        client_secret (str): [description]
+
+    Returns:
+        object: [description]
     """
     super(Walmart, self).__init__(client_id, client_secret)
 
   @property
   def report(self) -> Report:
+    """Report
+
+    Returns:
+        Report: [description]
+    """
     return Report(connection=self)
 
   @property
   def orders(self) -> Orders:
+    """Orders
+
+    Returns:
+        Orders: [description]
+    """
     return Orders(connection=self)
 
   @property
   def items(self) -> WalmartItems:
+    """Items
+
+    Returns:
+        WalmartItems: [description]
+    """
     return WalmartItems(connection=self)
 
   @property
   def inventory(self) -> Inventory:
+    """Inventory
+
+    Returns:
+        Inventory: [description]
+    """
     return Inventory(connection=self)
 
   @property
   def insights(self) -> Insights:
+    """Insights
+
+    Returns:
+        Insights: [description]
+    """
     return Insights(connection=self)
 

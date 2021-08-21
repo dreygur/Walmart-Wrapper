@@ -19,7 +19,7 @@ setuptools.setup(
   author_email="rafsanbillah@gmail.com",
 
   description="Walmart Marketplace API",
-  long_description=open('README.rst').read(),
+  long_description=open('README.md').read(),
 
   packages=setuptools.find_packages(),
 

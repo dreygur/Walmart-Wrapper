@@ -4,7 +4,6 @@ from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
 from walmart.core import Resource
-from walmart.exceptions import WalmartAuthenticationError
 
 class Report(Resource):
   """

@@ -6,7 +6,7 @@ def items(walmart, status="ALL"):
   pprint(item)
 
 def all_orders(walmart, start_date, end_date):
-  orders = walmart.report.orders.all_orders(start_date, end_date)
+  orders = walmart.orders.all_orders(start_date, end_date)
   pprint(orders)
 
 def all_items(walmart):
