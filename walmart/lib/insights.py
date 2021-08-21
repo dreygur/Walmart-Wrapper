@@ -14,7 +14,7 @@ class Insights(Resource):
     wfs_flag: str = '',
     view_trending_items: bool = True
   ) -> Dict:
-    return self.connection.get(
+    return self.connection.send_request(
       method='GET',
       url=self.url,
       params={
@@ -32,7 +32,7 @@ class Insights(Resource):
     timeframe: str = '7',
   ) -> Dict:
     url = 'trending'
-    return self.connection.get(
+    return self.connection.send_request(
       method='GET',
       url='{}/{}'.format(self.url, url),
       params={
@@ -51,7 +51,7 @@ class Insights(Resource):
     hass_issue: int = 0
   ) -> Dict:
     url = 'listingQuality/categories'
-    return self.connection.get(
+    return self.connection.send_request(
       method='GET',
       url='{}/{}'.format(self.url, url),
       params={
@@ -71,7 +71,7 @@ class Insights(Resource):
     items_with_inventory: bool = True
   ) -> Dict:
     url = 'unpublished/items'
-    self.connection.get(
+    self.connection.send_request(
       method='GET',
       url='{}/{}'.format(self.url, url),
       params={
@@ -81,5 +81,21 @@ class Insights(Resource):
         'offerLifeCycleStatus': offer_life_cycle_status,
         'marketTrending': market_trending,
         'itemsWithInventory': items_with_inventory
+      }
+    )
+
+  def unpublished_count(
+    self,
+    from_date: str,
+  ) -> Dict:
+    """
+    Date Format: 2020-09-23
+    """
+    url = 'unpublished/counts'
+    self.connection.send_request(
+      method='GET',
+      url='{}/{}'.format(self.url, url),
+      params={
+        'fromDate': from_date
       }
     )

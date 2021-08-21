@@ -23,7 +23,8 @@ def main():
   # all_items(walmart)
   # pprint(walmart.items.taxonomy)
   # pprint(walmart.items.search('Tires'))
-  pprint(walmart.inventory.all())
+  # pprint(walmart.inventory.all())
+  pprint(walmart.insights.unpublished_count('2021-08-18'))
 
   start_date= "2021-06-01"
   end_date= "2021-08-05"
