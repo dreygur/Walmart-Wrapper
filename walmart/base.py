@@ -5,8 +5,8 @@ from typing import Dict, List, Union, Tuple, Optional
 
 # LOCAL IMPORTS
 from .core import Core
-from .report import Report
-from .orders import Orders
+from lib.report import Report
+from lib.orders import Orders
 
 
 def epoch_milliseconds(dt: int) -> int:
