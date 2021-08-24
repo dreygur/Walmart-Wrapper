@@ -12,8 +12,8 @@ class Insights(Resource):
 
   def quality_score(
     self,
-    wfs_flag: str = '',
-    view_trending_items: bool = True
+    wfs_flag: str = 'false',
+    view_trending_items: bool = 'true'
   ) -> Dict:
     """Quality Score
 
@@ -24,9 +24,10 @@ class Insights(Resource):
     Returns:
         Dict: [description]
     """
+    url = 'listingQuality/score'
     return self.connection.send_request(
       method='GET',
-      url=self.url,
+      url='{}/{}'.format(self.url, url),
       params={
         'wfsFlag': wfs_flag,
         'viewTrendingItems': view_trending_items
