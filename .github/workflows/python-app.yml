@@ -17,4 +17,4 @@ jobs:
       id: test
       run: whoami
     - name: Result
-      run: echo ${{steps.get_coverage.outputs.test}}
+      run: echo ${{steps.test.outputs}}
