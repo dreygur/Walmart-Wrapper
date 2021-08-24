@@ -15,6 +15,6 @@ jobs:
     steps:
     - name: Set up Python 3.9
       id: test
-      run: whoami
+      run: echo "::set-output name=data::$(whoami)"
     - name: Result
-      run: echo ${{steps.test.outputs}}
+      run: echo ${{steps.test.outputs.data}}
