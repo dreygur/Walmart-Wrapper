@@ -1,0 +1,20 @@
+name: Python application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Python 3.9
+      id: test
+      run: whoami
+    - name: Result
+      run: echo ${{steps.get_coverage.outputs.test}}
