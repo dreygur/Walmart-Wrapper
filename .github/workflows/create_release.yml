@@ -1,1 +1,46 @@
-#
+name: Publish Python Package
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-n-publish:
+    name: Build and Release to Github-Release
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install pypa/build
+      run: >-
+        python -m
+        pip install
+        build
+        --user
+    - name: Build a binary wheel and a source tarball
+      run: >-
+        python -m
+        build
+        --sdist
+        --wheel
+        --outdir dist/
+        .
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.VERSION_NAME }}
+        release_name: v${{ env.VERSION_NAME }}
+        body: -_-
+        draft: false
+        prerelease: false
