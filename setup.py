@@ -13,10 +13,10 @@ test_requirements = [
 setuptools.setup(
   name="py-walmart",
   version="0.0.1",
-  url="https://github.com/rafsanbillah",
+  url="https://github.com/dreygur",
 
-  author="Rafsan Billah",
-  author_email="rafsanbillah@gmail.com",
+  author="Rakibul Yeasin",
+  author_email="ryeasin03@gmail.com",
 
   description="Walmart Marketplace API",
   long_description=open('README.md').read(),
