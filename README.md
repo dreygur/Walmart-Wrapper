@@ -1,4 +1,8 @@
-# Walmart Business api wrapper
+# Walmart Business API wrapper
+
+> __NOT DOCUMENTED YET & WORK-IN-PROGRESS__
+
+_Contributions are Welcomed!_
 
 __Code Samples__
 
