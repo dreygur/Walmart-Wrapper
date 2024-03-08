@@ -9,6 +9,7 @@ from walmart.lib.orders import Orders
 from walmart.lib.insights import Insights
 from walmart.lib.inventory import Inventory
 from walmart.lib.items import WalmartItems
+from walmart.lib.onrequest import ONRequest
 
 class Walmart(Core):
   def __init__(
@@ -71,4 +72,12 @@ class Walmart(Core):
         Insights: [description]
     """
     return Insights(connection=self)
+  
+  @property
+  def onreport(self)->ONRequest:
+    """ON Request
 
+    Returns:
+      ONRequest: [description]
+    """
+    return ONRequest(connection=self)
