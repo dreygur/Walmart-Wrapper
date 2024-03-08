@@ -4,3 +4,4 @@ pytest
 responses
 flake8
 requests-mock
+pandas
