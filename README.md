@@ -34,3 +34,14 @@ __Methods__
 ```python
 help()
 ```
+
+__Setup__
+- [ ] To Activate Virtual Environment
+```sh
+python -m pip venv venv
+```
+
+- [ ] Run setup.py 
+```sh
+python set.py install
+```
